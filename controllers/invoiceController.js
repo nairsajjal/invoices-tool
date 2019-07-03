@@ -40,10 +40,24 @@ function insertRecord(req, res){
         if(!err)
             res.redirect('/invoice/list');
         else{
-            console.log('Error during record insertion: ' +err);
+            if(err.name == ValidationError){
+                handleValidationError(err, req.body);
+
+            }
+            else{
+                console.log('Error during record insertion: ' +err);
+            }
+            
         }       
     })
 }
 
-
+function handleValidationError(err, body){
+    for(field in err.errors){
+        switch(err.errors[field].path){
+            case 'invoice_number':
+                body['fullNameError'] = err.errors[field].message;
+        }
+    }
+}
 module.exports = router;
