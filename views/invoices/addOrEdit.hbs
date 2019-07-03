@@ -9,26 +9,22 @@
     </div>
     <div class="form-group">
        
-        <textarea name="invoice_from" class="form-control" cols="20" rows="3">
-            Who is this invoice from?
-        </textarea>
+        <textarea class="form-control" placeholder="Who is this invoice from? (required)" required="" expanding-textarea="" cols="20" rows="3" style="resize: none;"></textarea>
 
     </div>
     <div class="form-group">
         <label>Bill To:</label>
-        <textarea name="invoice_to" class="form-control" cols="20" rows="3">
-            Who is this invoice to?
-        </textarea>
+       <textarea class="form-control" placeholder="Who is this invoice to? (required)"  required="" expanding-textarea="" cols="20" rows="3"style="resize: none;"></textarea>
     </div>
     </div>
     <div class="col-md-6 col-lg-6">
     <div class="form-group">
         <label>Date</label>
-        <input type="datetime-local" class="form-control" name="date" placeholder="Date">
+        <input type="date" class="form-control" name="date" placeholder="Date">
     </div>
     <div class="form-group">
         <label>Due-Date</label>
-        <input type="datetime-local" class="form-control" name="due_date" placeholder="Due-Date">
+        <input type="date" class="form-control" name="due_date" placeholder="Due-Date">
     </div>
     <div class="form-group">
         <label>Sub-Total</label>
@@ -36,25 +32,44 @@
     </div>
     </div>
    
+        <div class="well well-sm col-12">
+            <div class="row" style="padding:0px 0px 0px 0px; margin-bottom:-18px;">
+            <div class="form-group col-2" style="padding: 0px 0px 0px 15px">
+                <label class="form-control">Item-number</label>
+            </div>
+            <div class="form-group col-4"  style="padding: 0px 0px 0px 0px">
+                <label class="form-control">Type</label>
+            </div>
+            <div class="form-group col-2" style="padding: 0px 0px 0px 0px">
+                <label class="form-control">Quantity</label>
+            </div>
+            <div class="form-group col-2" style="padding: 0px 0px 0px 0px">
+                <label class="form-control">Rate</label>
+            </div>
+            <div class="form-group col-2" style="padding: 0px 15px 0px 0px">
+                <label class="form-control">Amount</label>
+            </div>
+            </div>
 
+        </div>
         <div class="form-group col-2">
-            <label>Item-number</label>
+            
             <input type="number" class="form-control" name="items_id" placeholder="Item-Id">
         </div>
         <div class="form-group col-4">
-            <label>Type</label>
+            
             <input type="text" class="form-control" name="items_type" placeholder="Type">
         </div>
         <div class="form-group col-2">
-            <label>Quantity</label>
+           
             <input type="number" class="form-control" name="items_quantity" placeholder="Quantity">
         </div>
         <div class="form-group col-2">
-            <label>Price</label>
+            
             <input type="number" class="form-control" name="items_quantity" placeholder="Quantity">
         </div>
         <div class="form-group col-2">
-            <label>Amount</label>
+            
             <input type="number" class="form-control" name="items_amount" placeholder="Amount">
         </div>
     <div class="form-group col-3">
