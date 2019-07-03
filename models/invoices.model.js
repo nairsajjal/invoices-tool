@@ -26,6 +26,9 @@ var invoiceSchema = new mongoose.Schema({
     items_quantity: {
         type: Number
     },
+    items_price:{
+        tupe: Number
+    },
     items_amount: {
         type: Number
     },

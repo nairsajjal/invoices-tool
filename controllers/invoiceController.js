@@ -8,4 +8,11 @@ router.get('/', (req,res)=> {
     });
 });
 
+router.post('/',(req,res)=>{
+   insertRecord(req,res);
+} );
+
+function insertRecord(req, res){
+
+}
 module.exports = router;

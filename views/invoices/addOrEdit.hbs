@@ -1,6 +1,6 @@
 <h1 class="page-header">{{viewTitle}}</h1>
 
-<form>
+<form action="/invoice" method="POST" autocomplete="off">
     <div class="row">
     <div class="col-md-6 col-lg-6">
     <div class="form-group">
@@ -9,12 +9,12 @@
     </div>
     <div class="form-group">
        
-        <textarea class="form-control" placeholder="Who is this invoice from? (required)" required="" expanding-textarea="" cols="20" rows="3" style="resize: none;"></textarea>
+        <textarea class="form-control" placeholder="Who is this invoice from? (required)" name="invoice_from"required="" expanding-textarea="" cols="20" rows="3" style="resize: none;"></textarea>
 
     </div>
     <div class="form-group">
         <label>Bill To:</label>
-       <textarea class="form-control" placeholder="Who is this invoice to? (required)"  required="" expanding-textarea="" cols="20" rows="3"style="resize: none;"></textarea>
+       <textarea class="form-control" placeholder="Who is this invoice to? (required)" name="invoice_to" required="" expanding-textarea="" cols="20" rows="3"style="resize: none;"></textarea>
     </div>
     </div>
     <div class="col-md-6 col-lg-6">
@@ -66,7 +66,7 @@
         </div>
         <div class="form-group col-2">
             
-            <input type="number" class="form-control" name="items_quantity" placeholder="Quantity">
+            <input type="number" class="form-control" name="items_price" placeholder="Price">
         </div>
         <div class="form-group col-2">
             
