@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 
 var invoiceSchema = new mongoose.Schema({
     invoice_number: {
-        type: Number
+        type: Number,
+        required: 'This field is required.'
     },
     invoice_from: {
-        type: String
+        type: String,
+        required: 'this field is required.'
     },
     invoice_to: {
-        type: String
+        type: String,
+        required: 'this field is required.'
     },
     date: { 
         type: String

@@ -13,6 +13,10 @@ router.post('/',(req,res)=>{
    insertRecord(req,res);
 } );
 
+router.get('/list',(req,res)=>{
+    res.json('To-Be List');
+    
+});
 
 
 function insertRecord(req, res){
@@ -34,15 +38,12 @@ function insertRecord(req, res){
     invoice.price = req.body.price;
     invoice.save((err,doc) => {
         if(!err)
-            res.redirect('invoice/list');
+            res.redirect('/invoice/list');
         else{
             console.log('Error during record insertion: ' +err);
         }       
     })
 }
 
-router.get('/invoice/list',(req,res)=>{
-    res.json('from List');
-    
-});
+
 module.exports = router;
