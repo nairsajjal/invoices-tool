@@ -40,8 +40,12 @@ function insertRecord(req, res){
         if(!err)
             res.redirect('/invoice/list');
         else{
-            if(err.name == ValidationError){
+            if(err.name=='ValidationError'){
                 handleValidationError(err, req.body);
+                res.render("invoices/addOrEdit",{
+                    viewTitle: "Add Invoices",
+                    invoice: req.body
+                });
 
             }
             else{
@@ -56,7 +60,37 @@ function handleValidationError(err, body){
     for(field in err.errors){
         switch(err.errors[field].path){
             case 'invoice_number':
-                body['fullNameError'] = err.errors[field].message;
+                body['invoice_numberError'] = err.errors[field].message;
+                break;
+            case 'invoice_from':
+                body['invoice_fromError'] = err.errors[field].message;
+                break;
+            case 'invoice_to':
+                body['invoice_toError'] = err.errors[field].message;
+                break;
+            case 'sub_total':
+                body['sub_totalError'] = err.errors[field].message;
+                break;
+            case 'items_id':
+                body['items_idError'] = err.errors[field].message;
+                break;
+            case 'items_type':
+                body['items_typeError'] = err.errors[field].message;
+                break;
+            case 'items_quantity':
+                body['items_quantityError'] = err.errors[field].message;
+                break;
+            case 'items_price':
+                body['items_priceError'] = err.errors[field].message;
+                break;
+            case 'items_amount':
+                body['items_amountError'] = err.errors[field].message;
+                break;
+            case 'items_total':
+                body['items_totalError'] = err.errors[field].message;
+                break;
+            default: 
+                break;
         }
     }
 }
