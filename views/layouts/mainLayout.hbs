@@ -28,15 +28,18 @@
         var sub_total_tenative = 0;
         var grand_total = 0;
         var taxed_total = 0;
+        var total_after_tax=0;
+        var shipped_total = 0;
+
         qt.addEventListener("input", amount_sum);
         ra.addEventListener("input", amount_sum);
         dis.addEventListener("input",add_discount);
         tax.addEventListener("input",add_tax);
-
+        
         function amount_sum(){
             
-            var quantity = parseFloat(qt.value) || 0;
-            var rate = parseFloat(ra.value) || 0;
+            var quantity = (qt.value) || 0;
+            var rate = (ra.value) || 0;
             var amount= quantity * rate;
         
             am.innerHTML=""+amount;
@@ -54,7 +57,7 @@
        }
 
         function add_discount(){
-            var discount = parseFloat(dis.value) || 0;
+            var discount =(dis.value) || 0;
             grand_total = ((100*sub_total_tenative)-(sub_total_tenative*discount))/100;
 
             total.innerHTML="" +grand_total;
@@ -66,12 +69,15 @@
             
         }
         function add_tax(){
-            var tax_1 = parseFloat(tax.value) || 0;
+            var tax_1 = (tax.value) || 0;
             taxed_total = ((100*grand_total)+(grand_total*tax_1))/100;
             total.innerHTML = ""+taxed_total;
-
+            
         }
         
+        
+
+       
         
       
     </script>
