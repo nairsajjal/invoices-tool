@@ -1,5 +1,5 @@
-<h1 class="page-header">{{viewTitle}}</h1>
-
+<h1 class="page-header" style="margin-left: 50px; margin-top:50px;">{{viewTitle}}</h1>
+<div class="container" style="margin-top: 10px;margin-left: 30px; padding:20px 0px 20px 20px;">
 <form action="/invoice" method="POST" autocomplete="off">
     <div class="row">
     <div class="col-md-6 col-lg-6">
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label>Sub-Total</label>
-        <input type="number" class="form-control" name="sub_total" placeholder="Sub_total" value="{{invoice.sub_total}}">
+        <p class="form-control" name="sub_total" id="sub" value="{{invoice.sub_total}}"></p>
          <div class="text-danger">{{invoice.sub_totalError}}</div>
     </div>
     </div>
@@ -68,18 +68,18 @@
         </div>
         <div class="form-group col-2">
            
-            <input type="number" class="form-control" name="items_quantity" placeholder="Quantity"   required="" value="{{invoice.items_quantity}}">
+            <input type="number" class="form-control" name="items_quantity" placeholder="Quantity"  id="qt" required="" value="{{invoice.items_quantity}}">
             <div class="text-danger">{{invoice.items_quantityError}}</div>
         </div>
         <div class="form-group col-2">
             
-            <input type="number" class="form-control" name="items_price" placeholder="Price"  required="" value="{{invoice.items_price}}">
+            <input type="number" class="form-control" name="items_price" placeholder="Price"  id="ra"required="" value="{{invoice.items_price}}">
             <div class="text-danger">{{invoice.items_priceError}}</div>
         </div>
         <div class="form-group col-2">
             
-            <input type="number" class="form-control" name="items_amount" placeholder="Amount"  required="" value="{{invoice.items_amount}}">
-            <div class="text-danger">{{invoice.items_amountError}}</div>
+            <p class="form-control" name="items_amount" id="am" value="{{invoice.items_amount}}"></p>
+            
         </div>
     <div class="form-group col-3">
           <button class="btn btn-primary" type="submit" name="add_items"><i class="fa fa-plus" aria-hidden="true"></i>Add Items</button>
@@ -88,19 +88,19 @@
     <div class="col-6 offset-md-6">
         <div class="form-group">
             <label>Discounts</label>
-            <input type="number" class="form-control" name="discounts" placeholder="discounts" value="{{invoice.discounts}}">
+            <input type="number" id="dis" class="form-control" name="discounts" placeholder="discounts" value="{{invoice.discounts}}">
         </div>
         <div class="form-group">
             <label>Tax</label>
-            <input type="number" class="form-control" name="tax" placeholder="tax" value="{{invoice.tax}}">
+            <input type="number" id="tax" class="form-control" name="tax" placeholder="tax" value="{{invoice.tax}}">
         </div>
         <div class="form-group">
             <label>Shipping</label>
-            <input type="number" class="form-control" name="shipping" placeholder="shipping" value="{{invoice.shipping}}">
+            <input type="number" id="ship" class="form-control" name="shipping" placeholder="shipping" value="{{invoice.shipping}}">
         </div>
         <div class="form-group">
             <label>Total</label>
-            <input type="number" class="form-control" name="total" placeholder="total"  required="" value="{{invoice.date}}">
+            <p  class="form-control" name="total" id="total"  value="{{invoice.date}}"></p>
             <div class="text-danger">{{invoice.totalError}}</div>
         </div>
         <div class="form-group">
@@ -111,3 +111,4 @@
 
 </div>
 </form>
+</div>

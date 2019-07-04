@@ -6,4 +6,4 @@ mongoose.connect('mongodb://localhost:27017/InvoiceDB', {useNewUrlParser: true} 
 
 });
 
-require('./invoices.model');
+require('./invoice.model');

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Invoice = mongoose.model('Invoice');
 
 router.get('/', (req,res)=> {
-    res.render("invoices/addOrEdit",{
+    res.render("invoice/addOrEdit",{
         viewTitle: "Add Invoices"
     });
 });
@@ -13,10 +13,7 @@ router.post('/',(req,res)=>{
    insertRecord(req,res);
 } );
 
-router.get('/list',(req,res)=>{
-    res.json('To-Be List');
-    
-});
+
 
 
 function insertRecord(req, res){
@@ -42,7 +39,7 @@ function insertRecord(req, res){
         else{
             if(err.name=='ValidationError'){
                 handleValidationError(err, req.body);
-                res.render("invoices/addOrEdit",{
+                res.render("invoice/addOrEdit",{
                     viewTitle: "Add Invoices",
                     invoice: req.body
                 });
@@ -55,7 +52,21 @@ function insertRecord(req, res){
         }       
     })
 }
-
+router.get('/list',(req,res)=>{
+   
+    Invoice.find((err,docs)=>{
+        if(!err){
+            res.render("invoice/list",{
+                list: docs
+            })
+        }
+        else{
+            console.log("error in retrieving the records"+ err);
+        }
+    });
+    
+    
+});
 function handleValidationError(err, body){
     for(field in err.errors){
         switch(err.errors[field].path){
